@@ -1,4 +1,4 @@
-﻿namespace DataFeeder
+﻿namespace Init
 {
     public class Dimensions
     {
