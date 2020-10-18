@@ -31,11 +31,21 @@ namespace DatabaseTester
         }
 
         [Fact]
-        public void WhenWrongFilePathIsPassedToProductsProviderCtorThrowError()
+        public void WhenWrongFilePathIsPassedToProductsProviderCtorReturnsNull()
         {
             var filePath = "jskzjdskjk";
             var products = new ProductsProvider(filePath);
             Assert.True(products.DbConnection == null);
         }
+
+        [Fact]
+        public void GetAllProductsFromDatabaseWhenCorrectFilePathIsPassed()
+        {
+            var filePath = ProductsProvider.GetDbPath();
+            var products = new ProductsProvider(filePath);
+            var allProducts = products.GetAllProductsFromDb();
+            Assert.True(allProducts.Count !=0);
+        }
+
     }
 }
