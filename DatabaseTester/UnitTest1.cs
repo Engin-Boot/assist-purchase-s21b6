@@ -27,7 +27,7 @@ namespace DatabaseTester
         {
             var filePath = ProductsProvider.GetDbPath();
             var productsProvider = new ProductsProvider(filePath);
-            Assert.False(productsProvider._dbConnection.Equals(null));
+            Assert.False(productsProvider.DbConnection.Equals(null));
         }
 
         [Fact]
@@ -35,7 +35,7 @@ namespace DatabaseTester
         {
             var filePath = "jskzjdskjk";
             var products = new ProductsProvider(filePath);
-            Assert.True(products._dbConnection == null);
+            Assert.True(products.DbConnection == null);
         }
     }
 }
