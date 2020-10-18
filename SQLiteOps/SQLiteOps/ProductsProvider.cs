@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
+using System.IO;
+using System.Reflection;
 
 namespace SQLiteOps
 {
-    public class ProductsFromDb
+    public class ProductsProvider
     {
         #region ctor
 
-        public ProductsFromDb(string filePath)
+        public ProductsProvider(string filePath)
         {
             var connectionPath = @"URI=file:" + filePath;
             try
@@ -44,19 +46,25 @@ namespace SQLiteOps
                         return null;
                     while (result.Read())
                     {
-                        var description = new Description();
-                        description.ProductId = result.GetString(0);
-                        description.ModelNumber = result.GetString(1);
-                        description.ProductName = result.GetString(2);
-                        description.ProductDimensions.Height = result.GetDouble(3);
-                        description.ProductDimensions.Length = result.GetDouble(4);
-                        description.ProductDimensions.Width = result.GetDouble(5);
-                        description.Weight = result.GetDouble(6);
-                        description.IsCeCertified = result.GetBoolean(7);
-                        description.HasHandle = result.GetBoolean(8);
-                        description.IsTouchScreen = result.GetBoolean(9);
-                        description.HasBattery = result.GetBoolean(10);
-                        description.ScreenType = result.GetString(11);
+                        var description = new Description
+                        {
+                            ProductId = result.GetString(0),
+                            ModelNumber = result.GetString(1),
+                            ProductName = result.GetString(2),
+                            IsCeCertified = result.GetBoolean(7),
+                            Weight = result.GetDouble(6),
+                            HasHandle = result.GetBoolean(8),
+                            IsTouchScreen = result.GetBoolean(9),
+                            HasBattery = result.GetBoolean(10),
+                            ScreenType = result.GetString(11)
+                        };
+                        if (description.ProductDimensions != null)
+                        {
+                            description.ProductDimensions.Height = result.GetDouble(3);
+                            description.ProductDimensions.Length = result.GetDouble(4);
+                            description.ProductDimensions.Width = result.GetDouble(5);
+                        }
+
 
                         dict.Add(description.ProductId, description);
                     }
@@ -64,7 +72,7 @@ namespace SQLiteOps
                 catch (Exception e)
                 {
                     Console.WriteLine(e);
-                    throw;
+                    throw (new FileNotFoundException("Database not found"));
                 }
 
                 finally
@@ -74,6 +82,13 @@ namespace SQLiteOps
             }
 
             return dict;
+        }
+
+        public static string GetDbPath()
+        {
+            var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            var dbPath = Path.GetFullPath(Path.Combine(path, @"..\..\..\..\Products.db"));
+            return dbPath;
         }
         #endregion
 
@@ -88,14 +103,5 @@ namespace SQLiteOps
         private readonly SQLiteConnection _dbConnection;
         #endregion
 
-
-        #region Main
-
-        public static void Main()
-        {
-
-        }
-
-        #endregion
     }
 }
