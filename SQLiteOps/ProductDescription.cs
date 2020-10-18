@@ -14,7 +14,7 @@
 
         public string ProductName { get; set; }
 
-        //In inches (Validation required) 
+        //In inches (Validation required 
         public double ScreenSize { get; set; }
         public double Weight { get; set; }
         public bool HasHandle { get; set; }
