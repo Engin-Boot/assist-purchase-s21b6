@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Data.SQLite;
 using System.IO;
 using System.Reflection;
+using ProductInfoApi.Models;
 
-namespace SQLiteOps
+namespace ProductInfoApi
 {
     public class ProductsProvider
     {
@@ -28,10 +29,10 @@ namespace SQLiteOps
         #endregion
 
         #region PublicMethods
-        public Dictionary<string, Description> GetAllProductsFromDb()
+        public Dictionary<string, ProductData> GetAllProductsFromDb()
         {
             _dbConnection.Open();
-            var dict = new Dictionary<string, Description>();
+            var dict = new Dictionary<string, ProductData>();
             using (var command = _dbConnection.CreateCommand())
             {
                 try
@@ -46,7 +47,7 @@ namespace SQLiteOps
                         return null;
                     while (result.Read())
                     {
-                        var description = new Description
+                        var description = new ProductData()
                         {
                             ProductId = result.GetString(0),
                             ModelNumber = result.GetString(1),
@@ -58,11 +59,11 @@ namespace SQLiteOps
                             HasBattery = result.GetBoolean(10),
                             ScreenType = result.GetString(11)
                         };
-                        if (description.ProductDimensions != null)
+                        if (description.Dimension != null)
                         {
-                            description.ProductDimensions.Height = result.GetDouble(3);
-                            description.ProductDimensions.Length = result.GetDouble(4);
-                            description.ProductDimensions.Width = result.GetDouble(5);
+                            description.Dimension.Height = result.GetDouble(3);
+                            description.Dimension.Length = result.GetDouble(4);
+                            description.Dimension.Width = result.GetDouble(5);
                         }
 
 

@@ -1,4 +1,4 @@
-﻿    public class Dimensions
+    public class Dimensions
     {
         public double Height;
         public double Length;
