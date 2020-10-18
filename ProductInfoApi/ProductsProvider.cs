@@ -42,9 +42,6 @@ namespace ProductInfoApi
                     command.ExecuteNonQuery();
 
                     var result = command.ExecuteReader();
-                    var hasRows = result.HasRows;
-                    if (!hasRows)
-                        return null;
                     while (result.Read())
                     {
                         var description = new ProductData()
@@ -66,9 +63,6 @@ namespace ProductInfoApi
                             }
                     
                         };
-                        
-
-
                         dict.Add(description.ProductId, description);
                     }
                 }
@@ -83,9 +77,9 @@ namespace ProductInfoApi
                     CloseDb();
                 }
             }
-
             return dict;
         }
+
 
         public static string GetDbPath()
         {
