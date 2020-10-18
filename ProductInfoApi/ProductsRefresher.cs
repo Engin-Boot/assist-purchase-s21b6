@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using ProductInfoApi;
 using ProductInfoApi.Models;
 
-namespace SQLiteOps
+namespace ProductInfoApi
 {
     public class ProductsRefresher
     {
