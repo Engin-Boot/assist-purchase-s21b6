@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
-using System.Text;
 
 namespace SQLiteOps
 {
-    public class ProductsFromDB
+    public class ProductsFromDb
     {
         #region ctor
 
-        public ProductsFromDB(string filePath)
+        public ProductsFromDb(string filePath)
         {
             var connectionPath = @"URI=file:" + filePath;
             try
@@ -85,9 +84,18 @@ namespace SQLiteOps
         }
         #endregion
 
-
         #region PrivateVariables
         private readonly SQLiteConnection _dbConnection;
+        #endregion
+
+
+        #region Main
+
+        public static void Main()
+        {
+
+        }
+
         #endregion
     }
 }
