@@ -14,16 +14,7 @@ namespace ProductInfoApi
         public ProductsProvider(string filePath)
         {
             var connectionPath = @"URI=file:" + filePath;
-            try
-            {
-                _dbConnection = new SQLiteConnection(connectionPath);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-
+            DbConnection = File.Exists(filePath) ? new SQLiteConnection(connectionPath) : null;
         }
 
         #endregion
@@ -31,9 +22,9 @@ namespace ProductInfoApi
         #region PublicMethods
         public Dictionary<string, ProductData> GetAllProductsFromDb()
         {
-            _dbConnection.Open();
+            DbConnection.Open();
             var dict = new Dictionary<string, ProductData>();
-            using (var command = _dbConnection.CreateCommand())
+            using (var command = DbConnection.CreateCommand())
             {
                 try
                 {
@@ -61,8 +52,8 @@ namespace ProductInfoApi
                                 Length = result.GetDouble(4),
                                 Width = result.GetDouble(5)
                             }
-                    
                         };
+
                         dict.Add(description.ProductId, description);
                     }
                 }
@@ -92,12 +83,12 @@ namespace ProductInfoApi
         #region PrivateMethods
         private void CloseDb()
         {
-            _dbConnection.Close();
+            DbConnection.Close();
         }
         #endregion
 
         #region PrivateVariables
-        private readonly SQLiteConnection _dbConnection;
+        public readonly SQLiteConnection DbConnection;
         #endregion
 
     }
