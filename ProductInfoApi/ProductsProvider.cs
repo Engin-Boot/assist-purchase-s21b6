@@ -57,14 +57,16 @@ namespace ProductInfoApi
                             HasHandle = result.GetBoolean(8),
                             IsTouchScreen = result.GetBoolean(9),
                             HasBattery = result.GetBoolean(10),
-                            ScreenType = result.GetString(11)
+                            ScreenType = result.GetString(11), 
+                            Dimension = new Dimensions()
+                            {
+                                Height = result.GetDouble(3),
+                                Length = result.GetDouble(4),
+                                Width = result.GetDouble(5)
+                            }
+                    
                         };
-                        if (description.Dimension != null)
-                        {
-                            description.Dimension.Height = result.GetDouble(3);
-                            description.Dimension.Length = result.GetDouble(4);
-                            description.Dimension.Width = result.GetDouble(5);
-                        }
+                        
 
 
                         dict.Add(description.ProductId, description);

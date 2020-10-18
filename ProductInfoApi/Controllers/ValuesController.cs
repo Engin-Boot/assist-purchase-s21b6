@@ -3,8 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 using ProductInfoApi.Models;
 using ProductInfoApi.Repository;
 
-namespace QueryResolveApi.Controllers
+namespace ProductInfoApi.Controllers
 {
+
     [Route("api/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase

@@ -5,14 +5,15 @@ namespace ProductInfoApi.Repository
 {
     public class DictionaryProducts
     {
-        public   Dictionary<string, ProductData> DictionaryOfProducts =
-            new Dictionary<string, ProductData>();
+        public Dictionary<string, ProductData> DictionaryOfProducts { get; private set; }
 
         public  DictionaryProducts()
         {
+            var filePath = ProductsProvider.GetDbPath();
+            var obj = new ProductsProvider(filePath);
+            DictionaryOfProducts = obj.GetAllProductsFromDb();
             
-
-            DictionaryOfProducts.Add("abc1", new ProductData
+            /*DictionaryOfProducts.Add("abc1", new ProductData
             {
                 ProductId = "abc1",
                 ModelNumber = "a",
@@ -95,7 +96,7 @@ namespace ProductInfoApi.Repository
                         Height = 12
                     }
                 }
-            );
+            );*/
         }
     }
 }
