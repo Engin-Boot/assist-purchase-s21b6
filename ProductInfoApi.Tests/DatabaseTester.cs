@@ -1,8 +1,8 @@
+using System;
 using System.IO;
-using ProductInfoApi;
 using Xunit;
 
-namespace DatabaseTester
+namespace ProductInfoApi.Tests
 {
     public class DatabaseTester
     {
@@ -47,13 +47,14 @@ namespace DatabaseTester
             Assert.True(allProducts.Count !=0);
         }
 
-        //[Fact]
-        //public void WhenWrongDatabasePassedThrowFileNotFoundError()
-        //{
-        //    const string filePath = @"D:\Work\Training\Bootcamp\Products.db";
-        //    var products = new ProductsProvider(filePath);
-        //    Assert.Throws<FileNotFoundException>(() => products.GetAllProductsFromDb());
-        //}
+        [Fact]
+        public void WhenWrongDatabasePassedThrowFileNotFoundError()
+        {
+            var filePath = AppDomain.CurrentDomain.BaseDirectory;
+            var dbPath = Path.GetFullPath(Path.Combine(filePath, @"..\..\..\Products.db"));
+            var products = new ProductsProvider(dbPath);
+            Assert.Throws<FileNotFoundException>(() => products.GetAllProductsFromDb());
+        }
 
         [Fact]
         public void DatabaseRefreshTester()
