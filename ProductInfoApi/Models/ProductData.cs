@@ -6,9 +6,6 @@
         public string ModelNumber { get; set; }
         public string ProductName { get; set; }
 
-        //In cm (Validation required)
-        
-
         //In inches (Validation required) 
         public double ScreenSize { get; set; }
         public double Weight { get; set; }

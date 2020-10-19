@@ -47,5 +47,22 @@ namespace DatabaseTester
             Assert.True(allProducts.Count !=0);
         }
 
+        [Fact]
+        public void WhenWrongDatabasePassedThrowFileNotFoundError()
+        {
+            const string filePath = @"D:\Work\Training\Bootcamp\Products.db";
+            var products = new ProductsProvider(filePath);
+            Assert.Throws<FileNotFoundException>(() => products.GetAllProductsFromDb());
+        }
+
+        [Fact]
+        public void DatabaseRefreshTester()
+        {
+            var products = new ProductsRefresher();
+            var refreshedProducts = products.RefreshProducts();
+            Assert.True(products !=null);
+            Assert.True(refreshedProducts.Count !=0);
+        }
+
     }
 }

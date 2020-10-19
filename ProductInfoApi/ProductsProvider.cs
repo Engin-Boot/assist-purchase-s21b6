@@ -20,6 +20,10 @@ namespace ProductInfoApi
         #endregion
 
         #region PublicMethods
+        /// <summary>
+        /// Fetches all products present in the database
+        /// </summary>
+        /// <returns></returns>
         public Dictionary<string, ProductData> GetAllProductsFromDb()
         {
             DbConnection.Open();
@@ -31,7 +35,6 @@ namespace ProductInfoApi
                     command.CommandText = "Select * from Products;";
                     command.Prepare();
                     command.ExecuteNonQuery();
-
                     var result = command.ExecuteReader();
                     while (result.Read())
                     {
@@ -72,6 +75,10 @@ namespace ProductInfoApi
         }
 
 
+        /// <summary>
+        /// Returns file path of the database
+        /// </summary>
+        /// <returns></returns>
         public static string GetDbPath()
         {
             var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
