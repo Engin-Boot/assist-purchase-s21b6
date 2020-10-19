@@ -8,7 +8,6 @@ namespace ProductInfoApi.Repository
 {
     public class HelperFunctions
     {
-        private static readonly DictionaryProducts AllProducts = new DictionaryProducts();
         public static List<double> DimensionsInDouble(List<string> dimensions)
         {
             var dimensionsInDouble = new List<double>();
@@ -23,10 +22,15 @@ namespace ProductInfoApi.Repository
             return dimensionsInDouble;
         }
 
-        public static IEnumerable<KeyValuePair<string, ProductData>> SubsetOfDictionary(IEnumerable<object> productIdsListByUser)
+        public static IEnumerable<KeyValuePair<string, ProductData>> SubsetOfDictionary(
+            IEnumerable<object> productIdsListByUser,
+            IEnumerable<KeyValuePair<string, ProductData>> dictionaryOfProducts)
         {
-            return AllProducts.DictionaryOfProducts.Where
-                (r => productIdsListByUser.Contains(r.Key));
+            var keyValuePairs = dictionaryOfProducts.ToList();
+            if (keyValuePairs.Any())
+                return keyValuePairs.Where
+                    (r => productIdsListByUser.Contains(r.Key));
+            return null;
         }
 
         public static bool IsInputEmptyOrNull(List<string> productListByUser)
@@ -38,13 +42,14 @@ namespace ProductInfoApi.Repository
             IEnumerable<KeyValuePair<string, ProductData>> results)
         {
             var listOfProductIds = from product in results
-                where Math.Abs(product.Value.Dimension.Length - dimensionsInDouble[0]) < 2
-                      && Math.Abs(product.Value.Dimension.Width - dimensionsInDouble[1]) < 2
-                      && Math.Abs(product.Value.Dimension.Height - dimensionsInDouble[2]) < 2
-                select product.Key;
+                                   where Math.Abs(product.Value.Dimension.Length - dimensionsInDouble[0]) < 2
+                                         && Math.Abs(product.Value.Dimension.Width - dimensionsInDouble[1]) < 2
+                                         && Math.Abs(product.Value.Dimension.Height - dimensionsInDouble[2]) < 2
+                                   select product.Key;
 
             return listOfProductIds;
         }
 
     }
 }
+

@@ -7,16 +7,13 @@ namespace ProductInfoApi.Repository
     {
         public static IEnumerable<object> ParsingBoolError()
         {
-            //http invalid format
-            //.tolist();
-           // return new List<string>(){"Error", "Resource expected to be either true or false." };
-           var error = new List<object>
+            var error = new List<object>
            {
                HttpStatusCode.BadRequest, "Resource expected to be either true or false."
            };
-           return error;
+            return error;
         }
-        
+
 
         public static IEnumerable<object> ParsingDoubleError()
         {

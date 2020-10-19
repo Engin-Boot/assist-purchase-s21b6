@@ -8,11 +8,11 @@ namespace ProductInfoApi.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class ProductsController : ControllerBase
     {
         private readonly ICharacteristicWiseFilter _repo;
 
-        public ValuesController(ICharacteristicWiseFilter repo)
+        public ProductsController(ICharacteristicWiseFilter repo)
         {
             this._repo = repo;
         }
