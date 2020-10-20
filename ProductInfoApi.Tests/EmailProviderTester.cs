@@ -1,6 +1,6 @@
-﻿
-
-using System.Net.Mail;
+﻿using System.Net.Mail;
+using ProductInfoApi.EmailProvider;
+using ProductInfoApi.EmailProviderService;
 using Xunit;
 
 namespace ProductInfoApi.Tests
