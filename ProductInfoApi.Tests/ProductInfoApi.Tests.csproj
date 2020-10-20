@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="FubarCoder.RestSharp.Portable.Core" Version="4.0.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.1.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
     <PackageReference Include="RestSharp" Version="105.2.3" />
     <PackageReference Include="System.Data.SQLite.Core" Version="1.0.113.1" />
