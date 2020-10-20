@@ -2,7 +2,7 @@
 
 
 // ReSharper disable once ClassNeverInstantiated.Global
-    namespace ProductInfoApi.EmailProvider
+    namespace ProductInfoApi.EmailProviderService
     {
         public class EmailFormat
         {

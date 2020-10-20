@@ -1,4 +1,4 @@
-﻿namespace ProductInfoApi.EmailProvider
+﻿namespace ProductInfoApi.EmailProviderService
 {
     public interface IEmailProvider
     {

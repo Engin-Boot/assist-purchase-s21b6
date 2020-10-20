@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore;
+﻿using System.Diagnostics.CodeAnalysis;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
 namespace ProductInfoApi
 {
+    [ExcludeFromCodeCoverage]
     // ReSharper disable once ClassNeverInstantiated.Global
     public class Program
     {
