@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Net;
+﻿using System.Net;
 using System.Net.Mail;
 
 namespace ProductInfoApi
@@ -58,8 +57,6 @@ namespace ProductInfoApi
     // ReSharper disable once ClassNeverInstantiated.Global
     public class EmailFormat
     {
-        public List<string> ToAddresses;
-
         public EmailFormat(string customerName, string phoneNumber, string emailAddress, string interestedProducts)
         {
             CustomerName = customerName;
