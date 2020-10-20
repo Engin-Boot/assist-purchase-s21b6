@@ -26,7 +26,7 @@ namespace ProductInfoApi.EmailProviderService
 
         public static string GetToAddress()
         {
-            return "vadh.sonia@gmail.com";
+            return "venkatesh_cs@outlook.com";
         }
 
         public static MailAddress GetFromAddress()
@@ -40,7 +40,7 @@ namespace ProductInfoApi.EmailProviderService
             var smtpClient = new SmtpClient
             {
                 Port = 587,
-                Host = "smtp.gmail.com",
+                Host = "smtp-mail.outlook.com",
                 EnableSsl = true,
                 UseDefaultCredentials = false,
                 Credentials = GetSenderEmailCredentials(),
