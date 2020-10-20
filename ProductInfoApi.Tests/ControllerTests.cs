@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Net;
+using ProductInfoApi.Controllers;
+using ProductInfoApi.Repository;
 using RestSharp;
 using RestSharp.Deserializers;
 using Xunit;
@@ -27,6 +29,10 @@ namespace ProductInfoApi.Tests
             var resultList = Deserializer.Deserialize<List<object>>(response);
             Assert.NotNull(resultList);
             Assert.Equal(HttpStatusCode.OK,response.StatusCode);
+            var filters = new CharacteristicWiseFilter();
+            var filtersController = new ProductsController(filters);
+            var result = filtersController.GetAllProductIds();
+            Assert.NotNull(result);
         }
 
         [Fact]
