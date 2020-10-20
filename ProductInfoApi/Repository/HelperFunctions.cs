@@ -6,7 +6,7 @@ using ProductInfoApi.Models;
 
 namespace ProductInfoApi.Repository
 {
-    public class HelperFunctions
+    public static class HelperFunctions
     {
         public static List<double> DimensionsInDouble(List<string> dimensions)
         {

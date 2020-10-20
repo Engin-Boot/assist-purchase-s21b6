@@ -9,7 +9,7 @@ namespace ProductInfoApi.Repository
     {
 
         private static readonly DictionaryProducts AllProducts = new DictionaryProducts();
-        public Dictionary<string, ProductData> DictionaryOfProducts = AllProducts.DictionaryOfProducts;
+        public readonly Dictionary<string, ProductData> DictionaryOfProducts = AllProducts.DictionaryOfProducts;
         public Dictionary<string, ProductData> GetAllProducts()
         {
             return DictionaryOfProducts;
@@ -120,7 +120,7 @@ namespace ProductInfoApi.Repository
             return listOfProductIds;
         }
 
-        public static bool IsScreenTypeAvailable(string screenType)
+        private static bool IsScreenTypeAvailable(string screenType)
         {
             return screenType == "LCD" || screenType == "LED";
         }

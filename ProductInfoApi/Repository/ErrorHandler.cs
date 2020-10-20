@@ -3,7 +3,7 @@ using System.Net;
 
 namespace ProductInfoApi.Repository
 {
-    public class ErrorHandler
+    public static class ErrorHandler
     {
         public static IEnumerable<object> ParsingBoolError()
         {

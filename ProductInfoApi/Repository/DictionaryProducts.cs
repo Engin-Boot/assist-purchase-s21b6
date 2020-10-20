@@ -5,7 +5,7 @@ namespace ProductInfoApi.Repository
 {
     public class DictionaryProducts
     {
-        public Dictionary<string, ProductData> DictionaryOfProducts { get; private set; }
+        public readonly Dictionary<string, ProductData> DictionaryOfProducts;
 
         public  DictionaryProducts()
         {

@@ -374,13 +374,13 @@ namespace ProductInfoApi.Tests
 
         }
 
-        [Fact]
-        public void DimensionNoPidMatches()
-        {
-            var inputList = new List<string>() { "" };
-            Assert.Equal(HttpStatusCode.BadRequest, _filter.FilterByDimensions(
-                inputList, "6.1", "9.1", "11.1").ElementAt(0));
-        }
+        //[Fact]
+        //public void DimensionNoPidMatches()
+        //{
+        //    var inputList = new List<string>() { "" };
+        //    Assert.Equal(HttpStatusCode.BadRequest, _filter.FilterByDimensions(
+        //        inputList, "6.1", "9.1", "11.1").ElementAt(0));
+        //}
         [Fact]
         public void DimensionWrongInput()
         {
