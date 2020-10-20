@@ -20,10 +20,10 @@ jobs:
         run: dotnet tool install -g JetBrains.ReSharper.GlobalTools
         
       - name: Run resharper inspection
-        run: jb inspectcode VisitorCounterS21B6.sln /output=insreport.xml
+        run: jb inspectcode AssistPurchaseS21B6.sln /output=insreport.xml
        
       - name: Run resharper duplicate code check
-        run: jb dupfinder VisitorCounterS21B6.sln /output=dupreport.xml
+        run: jb dupfinder AssistPurchaseS21B6.sln /output=dupreport.xml
        
       - name: Check Reports
         run: powershell ./resharper.ps1
