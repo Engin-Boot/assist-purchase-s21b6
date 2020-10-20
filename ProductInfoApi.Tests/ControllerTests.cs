@@ -32,6 +32,10 @@ namespace ProductInfoApi.Tests
         {
             Init();
             _request = new RestRequest("Products/Touchscreen", Method.GET) {RequestFormat = DataFormat.Json};
+            //_request.AddQueryParameter("");
+            var response = Client.Execute(_request);
+
+            //var result = Deserializer.Deserialize<>(IEnumerable<>)
         }
        
         
