@@ -11,14 +11,14 @@ namespace ProductInfoApi.Tests
         public void GetToEmailAddress()
         {
             var obj = new EmailNotifier();
-            Assert.Equal("venkatesh_cs@outlook.com", obj.GetToAddress());
+            Assert.Equal("venkatesh_cs@outlook.com", EmailNotifier.GetToAddress());
         }
 
         [Fact]
         public void GetFromEmailAddress()
         {
             var obj = new EmailNotifier();
-            Assert.Equal("venky1998@live.com", obj.GetFromAddress().ToString());
+            Assert.Equal("venky1998@live.com", EmailNotifier.GetFromAddress().ToString());
         }
 
         [Fact]

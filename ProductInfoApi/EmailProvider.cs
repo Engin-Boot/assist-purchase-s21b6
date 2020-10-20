@@ -33,6 +33,7 @@ namespace ProductInfoApi
             return new MailAddress("venky1998@live.com");
         }
 
+        // ReSharper disable once MemberCanBeMadeStatic.Global
         public SmtpClient GetEmailServerDetails()
         {
             var smtpClient = new SmtpClient
