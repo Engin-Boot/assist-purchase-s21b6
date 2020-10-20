@@ -9,8 +9,7 @@ namespace ProductInfoApi
         public static void Main(string[] args) 
         { CreateWebHostBuilder(args).Build().Run(); }
 
-        // ReSharper disable once MemberCanBePrivate.Global
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args)
+        private static IWebHostBuilder CreateWebHostBuilder(string[] args)
         { return WebHost.CreateDefaultBuilder(args).UseStartup<Startup>(); }
     }
 }

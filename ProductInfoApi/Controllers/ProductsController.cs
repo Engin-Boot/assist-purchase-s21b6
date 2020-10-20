@@ -24,7 +24,7 @@ namespace ProductInfoApi.Controllers
         }
 
         // GET api/values/ListOfProductIds/
-        [HttpGet("ListOfProductIds/")]
+        [HttpGet("ListOfProductIds")]
         public IEnumerable<object> GetAllProductIds()
         {
             return this._repo.GetAllProductIds();
