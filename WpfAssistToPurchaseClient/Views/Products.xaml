@@ -1,0 +1,99 @@
+﻿<UserControl x:Class="WpfAssistToPurchaseClient.Views.Products"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfAssistToPurchaseClient.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+   
+    <Grid  Margin="20" DockPanel.Dock="Left" >
+       
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" ></RowDefinition>
+            <RowDefinition Height="auto" ></RowDefinition>
+            <RowDefinition Height="auto" ></RowDefinition>
+            <RowDefinition Height="auto" ></RowDefinition>
+            <RowDefinition Height="auto" ></RowDefinition>
+            <RowDefinition Height="auto" ></RowDefinition>
+            <RowDefinition Height="auto" ></RowDefinition>
+            <RowDefinition Height="auto" ></RowDefinition>
+            <RowDefinition Height="auto" ></RowDefinition>
+            <RowDefinition Height="auto" ></RowDefinition>
+            <RowDefinition Height="auto" ></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.Children>
+            <TextBlock Margin="2" Foreground="DarkGray" Grid.Row="0" Grid.Column="0">ProductId</TextBlock>
+            <TextBlock Margin="2" Foreground="DarkGray" Grid.Row="1" Grid.Column="0">ModelNumber</TextBlock>
+            <TextBlock Margin="2" Foreground="DarkGray" Grid.Row="2" Grid.Column="0">ProductName</TextBlock>
+            <TextBlock Margin="2" Foreground="DarkGray" Grid.Row="3" Grid.Column="0">ScreenSize</TextBlock>
+            <TextBlock Margin="2" Foreground="DarkGray" Grid.Row="4" Grid.Column="0">Weight</TextBlock>
+            <TextBlock Margin="2" Foreground="DarkGray" Grid.Row="5" Grid.Column="0">HasHandle</TextBlock>
+            <TextBlock Margin="2" Foreground="DarkGray" Grid.Row="6" Grid.Column="0">IsTouchScreen</TextBlock>
+            <TextBlock Margin="2" Foreground="DarkGray" Grid.Row="7" Grid.Column="0">IsCeCertified</TextBlock>
+            <TextBlock Margin="2" Foreground="DarkGray" Grid.Row="8" Grid.Column="0">ScreenType</TextBlock>
+            <TextBlock Margin="2" Foreground="DarkGray" Grid.Row="9" Grid.Column="0">HasBattery</TextBlock>
+
+            <ComboBox Name="ProductId" IsEditable="True" Text="--Select Product ID--"   Focusable="True" Margin="2" Width="110" Grid.Row="0" Grid.Column="1" >
+                <ComboBoxItem Content="100"></ComboBoxItem>
+                <ComboBoxItem Content="101"></ComboBoxItem>
+                <ComboBoxItem Content="102"></ComboBoxItem>
+                <ComboBoxItem Content="103"></ComboBoxItem>
+            </ComboBox>
+
+            <ComboBox Name="ModelNumber" IsEditable="True" Text="--Select Model No--"  Margin="2" Width="110" Grid.Row="1" Grid.Column="1">
+                <ComboBoxItem Content="100"></ComboBoxItem>
+                <ComboBoxItem Content="101"></ComboBoxItem>
+                <ComboBoxItem Content="102"></ComboBoxItem>
+                <ComboBoxItem Content="103"></ComboBoxItem>
+            </ComboBox>
+            <ComboBox Name="ProductName" IsEditable="True" Text="--Select Product Name--" Margin="2" Width="110" Grid.Row="2" Grid.Column="1">
+                <ComboBoxItem Content="IntelliVue X3"></ComboBoxItem>
+                <ComboBoxItem Content="IntelliVue MX100"></ComboBoxItem>
+                <ComboBoxItem Content="Goldway G40E G40E"></ComboBoxItem>
+                <ComboBoxItem Content="Efficia CM Series"></ComboBoxItem>
+            </ComboBox>
+
+            <ComboBox Name="ScreenSize" IsEditable="True" Text="--Select ScreenSize(inches) --" Margin="2" Width="110" Grid.Row="3" Grid.Column="1">
+                <ComboBoxItem Content="7.8"></ComboBoxItem>
+                <ComboBoxItem Content="4"></ComboBoxItem>
+                <ComboBoxItem Content="5.9"></ComboBoxItem>
+                <ComboBoxItem Content="4.7"></ComboBoxItem>
+            </ComboBox>
+            <ComboBox Name="Weight" IsEditable="True" Text="--Select Wt(pounds) --" Margin="2" Width="110" Grid.Row="4" Grid.Column="1">
+                <ComboBoxItem Content="4.4"></ComboBoxItem>
+                <ComboBoxItem Content="3.3"></ComboBoxItem>
+                <ComboBoxItem Content="2.2"></ComboBoxItem>
+                <ComboBoxItem Content="5.5"></ComboBoxItem> 
+            </ComboBox>
+            <ComboBox Name="HasHandle" IsEditable="True" Text="--select--" Margin="2" Width="110" Grid.Row="5" Grid.Column="1">
+                <ComboBoxItem Content="true"></ComboBoxItem>
+                <ComboBoxItem Content="false"></ComboBoxItem>
+            </ComboBox>
+            <ComboBox Name="IsTouchScreen" IsEditable="True" Text="--select--" Margin="2" Width="110" Grid.Row="6" Grid.Column="1">
+                <ComboBoxItem Content="true"></ComboBoxItem>
+                <ComboBoxItem Content="false"></ComboBoxItem>
+            </ComboBox>
+            <ComboBox Name="IsCeCertified" IsEditable="True" Text="--select--" Margin="2" Width="110" Grid.Row="7" Grid.Column="1">
+                <ComboBoxItem Content="true"></ComboBoxItem>
+                <ComboBoxItem Content="false"></ComboBoxItem>
+            </ComboBox>
+            <ComboBox Name="ScreenType" IsEditable="True" Text="--select--" Margin="2" Width="110" Grid.Row="8" Grid.Column="1">
+                <ComboBoxItem Content="LED"></ComboBoxItem>
+                <ComboBoxItem Content="LCD"></ComboBoxItem>
+            </ComboBox>
+            <ComboBox Name="HasBattery" IsEditable="True" Text="--select--" Margin="2" Width="110" Grid.Row="9" Grid.Column="1">
+                <ComboBoxItem Content="true"></ComboBoxItem>
+                <ComboBoxItem Content="false"></ComboBoxItem>
+            </ComboBox>
+            <Button Click="OnClickAsync" Grid.Row="10" Background="Beige" Foreground="Gray" Margin="2">GetProducts</Button>
+        </Grid.Children>
+    </Grid>
+   
+   
+</UserControl>
